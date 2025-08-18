@@ -146,3 +146,18 @@ ansible-playbook -i inventory.ini service.yml
 ansible-playbook -i inventory.ini web.yml
 ```
 
+# For web hook
+
+Payload URL:
+
+https://<ngrok-id>.ngrok-free.app/github-webhook/
+
+
+Content type:
+application/json
+
+SSL verification:
+Enabled (default is fine)
+
+Which events:
+Just the push event (or more if needed)
