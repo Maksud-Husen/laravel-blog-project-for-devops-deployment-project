@@ -29,7 +29,7 @@ pipeline {
                     echo "Contents of repo:"
                     ls -la
                     echo "Running playbook..."
-                    ansible-playbook -i inventory.ini server.yml
+                    ansible-playbook -i inventory.ini service.yml
                     '''
                 }
             }
