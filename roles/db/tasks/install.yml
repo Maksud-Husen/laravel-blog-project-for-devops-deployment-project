@@ -1,0 +1,22 @@
+---
+- name: Gathering facts
+  package_facts:
+    manager: auto
+
+- name: Install MySQL server
+  apt:
+    name: mysql-server
+    state: present
+  when: "'mysql-server' not in ansible_facts.packages"
+
+- name: Install Python MySQL client
+  apt:
+    name: python3-mysqldb
+    state: present
+  when: "'python3-mysqldb' not in ansible_facts.packages"
+  
+- name: Ensure MySQL service is running
+  service:
+    name: mysql
+    state: started
+    enabled: true

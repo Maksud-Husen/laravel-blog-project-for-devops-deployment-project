@@ -1,0 +1,26 @@
+---
+- name: Copy the project files
+  copy:
+    src: /home/maksud-husen/persional/Laravel-From-Scratch-Blog-Project/
+    dest: /var/www/blog-project/
+    owner: www-data
+    group: www-data
+    mode: '0755'
+
+- name: Start docker compose
+  command: docker-compose -f docker-compose.yml up -d
+  args:
+    chdir: /var/www/blog-project/
+
+- name: Reload nginx
+  service:
+    name: nginx
+    state: reloaded   
+
+- name: Ensure docker containers are running
+  command: docker ps -a
+      
+- name: restart container of app
+  command: docker-compose -f /var/www/blog-project/docker-compose.yml up -d app
+  args:
+    chdir: /var/www/blog-project/
