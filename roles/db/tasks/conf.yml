@@ -7,7 +7,7 @@
   mysql_user:
     name: laravel_user
     password: blog@101
-    host: 172.16.20.58
+    host: 
     priv: 'laravel_blog.*:ALL'
     state: present
 
@@ -16,7 +16,7 @@
     rule: allow
     port: 3306
     proto: tcp
-    from_ip: 172.16.20.58
+    from_ip:
   
 - name: restart mysql service
   service:
