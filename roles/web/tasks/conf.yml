@@ -1,7 +1,7 @@
 ---
 - name: Copy the project files
   copy:
-    src: /var/lib/jenkins/workspace/Laravel-From-Scratch-Blog-Project/
+    src: /var/lib/jenkins/workspace/laravel-blog/
     dest: /var/www/blog-project/
     owner: www-data
     group: www-data
