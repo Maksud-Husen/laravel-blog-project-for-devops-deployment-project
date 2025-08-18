@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo "Running ansible playbook"
                 script {
-                    sh '''cd Laravel-From-Scratch-Blog-Project 
+                    sh '''cd laravel-blog-project-for-devops-deployment-project
                     echo "Contents of repo:"
                     ls -la
                     echo "Running playbook..."
