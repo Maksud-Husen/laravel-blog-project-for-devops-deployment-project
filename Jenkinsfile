@@ -7,7 +7,7 @@ pipeline {
                 echo "Removing old project if exists"
                 script {
                     sh '''
-                        rm -rf Laravel-From-Scratch-Blog-Project'''
+                        rm -rf laravel-blog-project-for-devops-deployment-project'''
                 }
             }
         }
