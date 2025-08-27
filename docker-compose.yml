@@ -21,25 +21,25 @@ services:
       dockerfile: Dockerfile
     container_name: laravel_blog_app
     image: laravel_blog_app:latest
-    # depends_on:
-    #   - db    
+    depends_on:
+      - db    
     networks:
       - blog
     command: bash -c "php artisan key:generate && php artisan optimize && php artisan migrate && php-fpm"  
-  # db:      
-  #   image: mysql:8.0
-  #   container_name: laravel_blog_db
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=root
-  #     - MYSQL_DATABASE=laravel_blog
-  #     - MYSQL_USER=laravel_user
-  #     - MYSQL_PASSWORD=blog@101
-  #   ports:
-  #     - "3307:3306"
-  #   volumes:
-  #     - db_data:/var/lib/mysql
-  #   networks:
-  #     - blog
+  db:      
+    image: mysql:8.0
+    container_name: laravel_blog_db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=laravel_blog
+      - MYSQL_USER=laravel_user
+      - MYSQL_PASSWORD=blog@101
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - blog
 volumes:
   db_data:
 networks:
